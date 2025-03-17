@@ -64,3 +64,30 @@ Sorted array: [1 2 3 4 5]
 
 Program exited.
 ```
+
+## Revers sorted Array
+```go
+package main
+import "fmt"
+
+func reverse(arr []int) []int {
+	left,right := 0, len(arr)-1
+	for left < right {
+		arr[left], arr[right] = arr[right], arr[left]
+		left++
+		right--
+	}
+	return arr
+}
+
+func main(){
+	array := []int{4,5,6,7,8,9}
+	fmt.Println("Original array :",array)
+	fmt.Println("Reverse array :",reverse(array))
+}
+```
+### Output
+```
+Original array : [4,5,6,7,8,9]
+Reverse array :  [9,8,7,6,5,4]
+```
