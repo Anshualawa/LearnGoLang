@@ -91,3 +91,35 @@ func main(){
 Original array : [4,5,6,7,8,9]
 Reverse array :  [9,8,7,6,5,4]
 ```
+## Find Maximum and Minimum in an Array
+```go
+package main
+import "fmt"
+
+func MaxMinValue(array []int)(int,int){
+	if len(array) == 0 {
+		fmt.Println("Array is empty!")
+		return 0,0
+	}
+	min,max := array[0], array[0]
+	for _,num := range array {
+		if num < min {
+			min = num
+		}
+		if num > max {
+			max = num
+		}
+	}
+	return min, max
+}
+
+func main () {
+	array := []int{9,7,8,4,3,2,1,5}
+	fmt.Println("Original Array :",array)
+
+	min, max := MaxMinValue(array)
+
+	fmt.Println("Minimum value :",min)
+	fmt.Println("Maximum value :",max)
+}
+```
