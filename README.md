@@ -123,3 +123,40 @@ func main () {
 	fmt.Println("Maximum value :",max)
 }
 ```
+## Merge Two Sorted Arrays
+```go
+package main
+import "fmt"
+
+func Mrg2SrtArray(array1, array2 []int) []int {
+	i,j := 0,0
+	merged := []int{}
+
+	for i < len(array1) && j < len(array2) {
+		if array1[i] < array2[j] {
+			merged = append(merged,array1[i])
+			i++
+		} else {
+			merged = append(merged, array2[j])
+			j++
+		}
+	}
+	for i < len(array1) {
+		merged = append(merged, array1[i])
+		i++
+	}
+	for j < len(array2) {
+		merged = append(merged,array2[j])
+		j++
+	}
+	return merged
+}
+
+func main(){
+	arr1 := []int{3,4,5,6}
+	arr2 := []int{8,9,10,13,16}
+	fmt.Println("Array1 :",arr1)
+	fmt.Println("Array2 :",arr2)
+	fmt.Println("Merged array :",Mrg2SrtArray(arr1,arr2))
+}
+```
